@@ -2,3 +2,8 @@
 - hosts: all
   roles:
      - tools
+     - java
+     - aws
+     - datadog
+     - nginx
+     - api 
