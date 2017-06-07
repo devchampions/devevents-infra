@@ -14,8 +14,6 @@ resource "aws_instance" "dev_events_server" {
     volume_size = "20"
   }
   key_name = "${aws_key_pair.dev_events_key.key_name}"
-  subnet_id = "${aws_subnet.dev_events_subnet.id}"
+  subnet_id = "${aws_subnet.dev_events_subnet_d.id}"
   vpc_security_group_ids = [ "${aws_security_group.dev_events_security.id}" ]
 }
-
-# TODO: configure cloud watch logs
