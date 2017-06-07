@@ -24,15 +24,6 @@ resource "aws_iam_role" "crawler_lambda_executor" {
 EOF
 }
 
-resource "aws_iam_user" "travis_lambda_deployer" {
-  name = "travis_lambda_edployer"
-}
-
-resource "aws_iam_user_policy_attachment" "travis_lambda_deployer_policy_attachment" {
-  user       = "${aws_iam_user.travis_lambda_deployer.name}"
-  policy_arn = "arn:aws:iam::aws:policy/AWSLambdaFullAccess"
-}
-
 resource "aws_lambda_function" "lanyrd_crawler_function" {
   s3_bucket               = "${aws_s3_bucket.dev_events_code.bucket}"
   s3_key                  = "crawler.zip"
