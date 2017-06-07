@@ -58,3 +58,11 @@ resource "dnsimple_record" "zoho_dkim" {
   value    = "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCXvbFJN4nXPZB95Aqr31eJ9hiMNV+d/Qw98b4m7AJo9aipCnLxh4M5Z6orgApDGqNBiUWTphhVHB8xRYFQp5qEtpTfXSqJI6McJ3vCPnC2IcswAu5kwnjuOyOFNM/3g1SIPEH+tLIR70Lt5BF6GlcvYOIa5+QD0rc4QkQ7FGhP0QIDAQAB"
   ttl      = 60
 }
+
+resource "dnsimple_record" "api_server" {
+  domain   = "${var.dnsimple_domain}"
+  type     = "A"
+  name     = "api"
+  value    = "${aws_instance.dev_events_server.public_ip}"
+  ttl      = 60
+}
