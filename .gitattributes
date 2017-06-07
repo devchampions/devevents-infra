@@ -1,0 +1,3 @@
+*.json filter=crypt diff=crypt
+*.tfstate filter=crypt diff=crypt
+00_secrets.tf filter=crypt diff=crypt
