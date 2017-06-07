@@ -3,7 +3,7 @@
 
 ## Secrets
 
-Global secrets
+Global secrets are stored inside the `secrets`folder as JSON 
 
 ## Terraform
 

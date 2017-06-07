@@ -2,3 +2,4 @@
 *.tfstate filter=crypt diff=crypt
 *.key filter=crypt diff=crypt
 00_secrets.tf filter=crypt diff=crypt
+application.yml filter=crypt diff=crypt
