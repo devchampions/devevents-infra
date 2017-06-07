@@ -1,0 +1,12 @@
+
+- install codedeploy agent
+- install cloudwatch agent
+- install datadog agent
+- install java8
+- install postgres client
+- install telnet, curl, wget, jq, zip
+- install nginx
+- install ssl
+- install cert-bot
+- install application.yml
+- install api service
