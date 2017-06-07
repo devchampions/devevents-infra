@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ansible -i terraform.sh  
+ansible-playbook -i terraform.sh playbook.yml 

@@ -1,0 +1,9 @@
+---
+- name: Installs common packages
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - telnet
+    - zip
+    - curl
+    - wget
+
