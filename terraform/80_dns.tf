@@ -66,3 +66,11 @@ resource "dnsimple_record" "api_server" {
   value    = "${aws_instance.dev_events_server.public_ip}"
   ttl      = 60
 }
+
+resource "dnsimple_record" "web_cdn" {
+  domain   = "${var.dnsimple_domain}"
+  type     = "ALIAS"
+  name     = ""
+  value    = "${aws_cloudfront_distribution.dev_events_cdn_distribution.domain_name}"
+  ttl      = 60
+}
