@@ -9,7 +9,6 @@ DB_USER=$(jq -r '.modules[0].resources[] | select(.type == "aws_db_instance") | 
 DB_PASS=$(jq -r '.modules[0].resources[] | select(.type == "aws_db_instance") | .primary.attributes.password' $TERRAFORM_STATE)
 DB_NAME=$(jq -r '.modules[0].resources[] | select(.type == "aws_db_instance") | .primary.attributes.name' $TERRAFORM_STATE)
 
-
 cat << EOF
 {
   "backend": [ "$IP_ADDRESS" ],
@@ -17,6 +16,8 @@ cat << EOF
     "hostvars": {
       "$IP_ADDRESS": {
         "ansible_user" : "ec2-user",
+        "ansible_become": true,
+        "ansible_become_user": "root",        
         "ansible_ssh_private_key_file" : "$KEY_FILE",          
         "database_host": "$DB_ENDPOINT",
         "database_user": "$DB_USER",

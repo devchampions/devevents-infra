@@ -1,9 +1,9 @@
 ---
 - hosts: all
   roles:
-     - tools
-     - java
-     - aws
-     - datadog
-     - nginx
-     - api 
+    - { role: Datadog.datadog, become: yes }
+    - tools
+    - java
+    - aws
+    - nginx
+    - api 

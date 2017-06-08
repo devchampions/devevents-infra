@@ -3,3 +3,4 @@
 *.key filter=crypt diff=crypt
 00_secrets.tf filter=crypt diff=crypt
 application.yml filter=crypt diff=crypt
+all.yml filter=crypt diff=crypt
