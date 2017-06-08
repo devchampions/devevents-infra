@@ -48,8 +48,8 @@ resource "aws_cloudfront_distribution" "dev_events_cdn_distribution" {
     viewer_protocol_policy = "allow-all"
 
     min_ttl                = 0
-    default_ttl            = 3600
-    max_ttl                = 86400
+    default_ttl            = 60
+    max_ttl                = 60
 
   }
 
