@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#
+# This script generates Ansible dynamic invetory from Terraform state.
+#
+
 TERRAFORM_STATE=../terraform/terraform.tfstate
 KEY_FILE=../secrets/server.key
 

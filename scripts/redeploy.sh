@@ -1,5 +1,9 @@
 #!/bin/sh
 
+#
+# This script forces AWS CodeDeploy redeployment of devevents-backend.
+#
+
 aws deploy create-deployment \
            --application-name dev_events_backend \
            --deployment-group-name dev_events_deployment_group \
