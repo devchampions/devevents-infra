@@ -21,14 +21,19 @@ resource "aws_iam_role" "code_deployer" {
       "Sid": "",
       "Effect": "Allow",
       "Principal": {
-        "Service": "codedeploy.amazonaws.com",
-        "Service": "ec2.amazonaws.com"
+        "Service": "codedeploy.amazonaws.com"
       },
       "Action": "sts:AssumeRole"
     }
   ]
 }
 EOF
+}
+
+resource "aws_iam_policy_attachment" "code_deployer" {
+  name       = "code_deployer"
+  roles      = ["${aws_iam_role.code_deployer.name}"]
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
 }
 
 resource "aws_codedeploy_deployment_group" "dev_events_backend" {
