@@ -56,6 +56,7 @@ resource "aws_iam_instance_profile" "code_deploy_instance" {
 resource "aws_instance" "dev_events_server" {
   ami = "${data.aws_ami.base_image.id}"
   instance_type = "t2.micro"
+  depends_on = ["aws_iam_policy_attachment.code_deploy_instance"]
   iam_instance_profile = "${aws_iam_instance_profile.code_deploy_instance.name}"
   tags {
     Name = "dev_events_api"

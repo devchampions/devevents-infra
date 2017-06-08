@@ -33,7 +33,7 @@ EOF
 resource "aws_codedeploy_deployment_group" "dev_events_backend" {
 
   app_name               = "${aws_codedeploy_app.dev_events_backend.name}"
-  deployment_group_name  = "dev-events-deployment-group"
+  deployment_group_name  = "dev_events_deployment_group"
   service_role_arn       = "${aws_iam_role.code_deployer.arn}"
   deployment_config_name = "${aws_codedeploy_deployment_config.dev_events_backend.id}"
 
