@@ -11,4 +11,4 @@
     - { role: geerlingguy.java, become: yes, java_packages: java-1.8.0-openjdk }
     - tools
     - aws
-    - api
+    - backend
