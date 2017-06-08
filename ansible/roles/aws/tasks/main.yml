@@ -1,5 +1,21 @@
 ---
 
 # TODO: cloudwatch
-# TODO: codedeploy
 
+- name: Get EC2 Instance Metadata 
+  action: ec2_facts
+
+- name: Get CodeDeploy
+  get_url:
+    url: "https://aws-codedeploy-{{ ansible_ec2_placement_region }}.s3.amazonaws.com/latest/install"
+    dest: /tmp/codedeploy-install
+
+- name: CodeDeploy Install Binary 
+  file:
+    state: file
+    path: /tmp/codedeploy-install
+    mode: 0777
+
+- name: CodeDeploy Install
+  become: true
+  command: /tmp/codedeploy-install auto
