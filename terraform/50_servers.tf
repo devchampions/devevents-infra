@@ -8,7 +8,7 @@ resource "aws_instance" "dev_events_server" {
   ami = "${data.aws_ami.base_image.id}"
   instance_type = "t2.micro"
   tags {
-    Name = "devops_server"
+    Name = "dev_events_api"
   }
   root_block_device {
     volume_size = "20"
