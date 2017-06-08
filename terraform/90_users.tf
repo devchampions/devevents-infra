@@ -21,4 +21,9 @@ resource "aws_iam_user_policy_attachment" "travis_cloud_front_deployer_policy_at
   user       = "${aws_iam_user.travis_deployer.name}"
   policy_arn = "arn:aws:iam::aws:policy/CloudFrontFullAccess"
 }
- 
+
+resource "aws_iam_user_policy_attachment" "travis_code_deploy_deployer_policy_attachment" {
+  user       = "${aws_iam_user.travis_deployer.name}"
+  policy_arn = "arn:aws:iam::aws:policy/AWSCodeDeployFullAccess"
+}
+
