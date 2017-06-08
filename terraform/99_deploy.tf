@@ -21,7 +21,8 @@ resource "aws_iam_role" "code_deployer" {
       "Sid": "",
       "Effect": "Allow",
       "Principal": {
-        "Service": "codedeploy.amazonaws.com"
+        "Service": "codedeploy.amazonaws.com",
+        "Service": "ec2.amazonaws.com"
       },
       "Action": "sts:AssumeRole"
     }
