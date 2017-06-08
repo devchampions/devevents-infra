@@ -17,6 +17,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", name: "download-terraform", inline: "curl -s -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.9.6/terraform_0.9.6_linux_amd64.zip"
   config.vm.provision "shell", name: "install-terraform", inline: "unzip -q -o -d /usr/bin /tmp/terraform.zip"
   config.vm.provision "shell", name: "add-ansible-repo", inline: "apt-add-repository -y ppa:ansible/ansible && apt-get -y -qq update -o=Dpkg::Use-Pty=0"
+  config.vm.provision "shell", name: "install-python-pip", inline: "apt-get -y -qq install -o=Dpkg::Use-Pty=0 python-pip"
+  config.vm.provision "shell", name: "install-aws-cli", inline: "pip install awscli"
   config.vm.provision "shell", name: "install-ansible", inline: "apt-get -y -qq install -o=Dpkg::Use-Pty=0 ansible"
 end
 
