@@ -18,4 +18,4 @@
 
 - name: CodeDeploy Install
   become: true
-  command: /tmp/codedeploy-install auto
+  command: /tmp/codedeploy-install auto creates=/opt/codedeploy-agent/bin/codedeploy-agent

@@ -1,9 +1,14 @@
 ---
 - hosts: all
+  tasks:
+    - name: remove java 7
+      yum:
+        name: java-1.7.0-openjdk
+        state: absent
   roles:
     - { role: Datadog.datadog, become: yes }
+    - { role: geerlingguy.nginx, become: yes }
+    - { role: geerlingguy.java, become: yes, java_packages: java-1.8.0-openjdk }
     - tools
-    - java
     - aws
-    - nginx
-    - api 
+    - api

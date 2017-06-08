@@ -1,8 +1,0 @@
----
-- name: Installs nginx
-  yum: pkg=nginx state=installed
-
-# TODO: service
-# TODO: proxy
-# TODO: cert-bot
-# TODO: ssl

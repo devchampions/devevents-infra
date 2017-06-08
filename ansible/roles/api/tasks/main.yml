@@ -1,5 +1,7 @@
 ---
-
-# TODO: app service
-# TODO: app configuration
-
+- name: Install Application Configuration
+  template:
+    src: application.yml.j2
+    dest: /webapps/application.yml
+  tags:
+    - config
