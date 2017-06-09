@@ -31,7 +31,11 @@ resource "aws_cloudfront_distribution" "dev_events_cdn_distribution" {
     }
   }
 
-  # TODO: logging
+  logging_config {
+    include_cookies = false
+    bucket          = "${aws_s3_bucket.dev_events_logs.bucket_domain_name}"
+    prefix          = "devevents-cloudfront-"
+  }
 
   default_cache_behavior {
 
