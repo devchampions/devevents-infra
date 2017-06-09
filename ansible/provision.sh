@@ -6,4 +6,4 @@
 #
 
 ansible-galaxy install -r requirements.yml
-ansible-playbook -i terraform.sh playbook.yml 
+ANSIBLE_HOST_KEY_CHECKING=false ansible-playbook -i terraform.sh playbook.yml 
