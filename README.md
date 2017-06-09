@@ -37,3 +37,8 @@ The `provision.sh` script depends on [jq](https://stedolan.github.io/jq/) that s
 
 Both Terraform and Ansible can used directly on \*nix hosts. On Windows, it is adviced to start a virtual machine (aka control machine) using `vagrant up` and then login to that machine over SSH and run provisioning commands (`terraform apply` and `provision.sh`) from there.
 
+## Useful links
+
+- <https://console.aws.amazon.com/codedeploy/home?region=us-east-1#/deployments>
+- <https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#logStream:group=devevents-backend;streamFilter=typeLogStreamPrefix>
+
