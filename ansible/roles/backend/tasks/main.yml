@@ -3,5 +3,7 @@
   template:
     src: application.yml.j2
     dest: /webapps/application.yml
+  notify: 
+    - restart devevents-backend
   tags:
     - config

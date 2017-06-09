@@ -25,8 +25,10 @@
     mode: 0600
     owner: root
     src: awslogs.conf.j2
+  notify: 
+    - restart cloudwatch
 
-- name: Download the awslogs-agent-setup.py script
+- name: Download AWS CloudWatch installer
   get_url:
     dest: /tmp/awslogs-agent-setup.py
     group: root
@@ -34,5 +36,6 @@
     mode: 0600
     url: https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py
 
-- name: Install the AWS CloudWatch Logs daemon
-  shell: python /tmp/awslogs-agent-setup.py -n -r {{ ec2_region.stdout }} -c /tmp/awslogs.conf
+- name: Install AWS CloudWatch agent
+  shell: python /tmp/awslogs-agent-setup.py -n -r {{ ansible_ec2_placement_region }} -c /etc/awslogs.conf
+

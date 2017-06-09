@@ -1,0 +1,3 @@
+---
+- name: restart devevents-backend
+  service: name=devevents-backend state=restarted
