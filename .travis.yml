@@ -5,7 +5,7 @@ env:
 script: 
   - git clone https://github.com/elasticdog/transcrypt.git
   - cd transcrypt && sudo ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt && cd ..
-  - transcrypt -c aes-256-cbc -p ${MASTER_PASSWORD}
+  - transcrypt -F -y -c aes-256-cbc -p ${MASTER_PASSWORD}
   - cd ansible && ./provision.sh
 branches:
   only:
