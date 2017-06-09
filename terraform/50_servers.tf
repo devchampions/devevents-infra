@@ -32,7 +32,14 @@ resource "aws_iam_policy" "code_deploy_instance" {
     {
       "Action": [
         "s3:Get*",
-        "s3:List*"
+        "s3:List*",
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:GetLogEvents",
+        "logs:PutLogEvents",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:PutRetentionPolicy"
       ],
       "Effect": "Allow",
       "Resource": "*"
