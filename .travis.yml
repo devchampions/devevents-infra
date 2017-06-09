@@ -7,7 +7,7 @@ script:
   - cd transcrypt && sudo ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt && cd ..
   - transcrypt -F -y -c aes-256-cbc -p ${MASTER_PASSWORD}
   - sudo apt-add-repository -y ppa:ansible/ansible && sudo apt-get -y -qq update -o=Dpkg::Use-Pty=0 && sudo apt-get -y -qq install -o=Dpkg::Use-Pty=0 ansible jq
-  - cd ansible && ./provision.sh
+  - cd ansible && sudo ./provision.sh
 branches:
   only:
     - master
