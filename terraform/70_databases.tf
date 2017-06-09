@@ -8,6 +8,9 @@ resource "aws_db_instance" "dev_events_db" {
   engine                 = "postgres"
   engine_version         = "9.6.2"
 
+  backup_retention_period= 15
+  backup_window          = "01:46-03:16"
+
   identifier             = "devevents-db"
   name                   = "devevents_db"
   username               = "master"
