@@ -18,15 +18,13 @@
   become: true
   command: /tmp/codedeploy-install auto creates=/opt/codedeploy-agent/bin/codedeploy-agent
 
-- name: Configure CloudWatch
+- name: Create CloudWatch Configuration
   template:
     dest: /etc/awslogs.conf
     group: root
     mode: 0600
     owner: root
     src: awslogs.conf.j2
-  notify: 
-    - restart cloudwatch
 
 - name: Download AWS CloudWatch installer
   get_url:
@@ -39,4 +37,13 @@
 - name: Install AWS CloudWatch agent
   shell: python /tmp/awslogs-agent-setup.py -n -r {{ ansible_ec2_placement_region }} -c /etc/awslogs.conf creates=/etc/init.d/awslogs
 
+- name: Configure CloudWatch
+  template:
+    dest: /var/awslogs/etc/awslogs.conf
+    group: root
+    mode: 0600
+    owner: root
+    src: awslogs.conf.j2
+  notify: 
+    - restart cloudwatch
 
