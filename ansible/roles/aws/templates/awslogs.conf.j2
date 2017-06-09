@@ -8,4 +8,5 @@ datetime_format = {{ log.format }}
 file = {{ log.file }}
 log_group_name = {{ log.group_name }}
 log_stream_name = {instance_id}
+multi_line_start_pattern = {datetime_format}
 {% endfor %}
