@@ -1,4 +1,6 @@
 
+[![Build Status](https://travis-ci.org/devchampions/devevents-infra.svg?branch=master)](https://travis-ci.org/devchampions/devevents-infra)
+
 # dev.events infrastructure
 
 Infrastructure-as-code repository for <http://dev.events>.
