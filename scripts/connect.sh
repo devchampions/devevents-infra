@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #
-# This script open ssh session to the remote devevents-backend server.
+# This script open SSH session to the remote devevents-backend server.
 #
 
 TERRAFORM_STATE=../terraform/terraform.tfstate
