@@ -31,6 +31,8 @@ resource "aws_cloudfront_distribution" "dev_events_cdn_distribution" {
     }
   }
 
+  # TODO: logging
+
   default_cache_behavior {
 
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]

@@ -1,0 +1,6 @@
+---
+- name: restart cloudwatch
+  service: name=cloudwatch-agent state=restarted
+
+- name: restart codedeploy
+  service: name=codedeploy-agent state=restarted

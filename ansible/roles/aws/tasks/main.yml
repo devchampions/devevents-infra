@@ -1,7 +1,5 @@
 ---
 
-# TODO: cloudwatch
-
 - name: Get EC2 Instance Metadata 
   action: ec2_facts
 
@@ -19,3 +17,22 @@
 - name: CodeDeploy Install
   become: true
   command: /tmp/codedeploy-install auto creates=/opt/codedeploy-agent/bin/codedeploy-agent
+
+- name: Configure CloudWatch
+  template:
+    dest: /etc/awslogs.conf
+    group: root
+    mode: 0600
+    owner: root
+    src: awslogs.conf.j2
+
+- name: Download the awslogs-agent-setup.py script
+  get_url:
+    dest: /tmp/awslogs-agent-setup.py
+    group: root
+    owner: root
+    mode: 0600
+    url: https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py
+
+- name: Install the AWS CloudWatch Logs daemon
+  shell: python /tmp/awslogs-agent-setup.py -n -r {{ ec2_region.stdout }} -c /tmp/awslogs.conf
