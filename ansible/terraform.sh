@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# This script generates Ansible dynamic invetory from Terraform state.
+# This script generates Ansible dynamic inventory from Terraform state.
 #
 
 TERRAFORM_STATE=../terraform/terraform.tfstate
